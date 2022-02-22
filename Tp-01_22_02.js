@@ -35,11 +35,12 @@ class Magicien extends Personnage{
     attaque(adversaire){
         adversaire.sante-=helmet.attaque
         console.log(this.pseudo + " attaque" + adversaire.pseudo + " en lançant un sort et fait" + attaque);
-        evoluer();
-        verifierSante();
+        helmet.evoluer();
+        adversaire.verifierSante();
     }
+
     mageInfo(){
-        return this.pseudo + ", " + this.classe + " a " + this.sante + " points de vie et est au niveau " + this.niveau;
+        console.log(this.pseudo + ", " + this.classe + " a " + this.sante + " points de vie et est au niveau " + this.niveau);
     }
 }
 
@@ -47,10 +48,14 @@ class Guerrier extends Personnage{
     constructor(pseudo, classe, sante, attaque){
         super(pseudo,"Guerrier", 350, 50);
     }
-    warInfo(){
-        return this.pseudo + ", " + this.classe + " a " + this.sante + " points de vie et est au niveau " + this.niveau;
-
+    attaque(adversaire){
+        adversaire.sante-=conan.attaque
+        console.log(this.pseudo + " attaque" + adversaire.pseudo + " en lançant un sort et fait" + attaque);
+        conan.evoluer();
+        adversaire.verifierSante();
+    warInfo()
     }
+    console.log(this.pseudo + ", " + this.classe + " a " + this.sante + " points de vie et est au niveau " + this.niveau);
 }
 
 let helmet = new Magicien("Hemlet");
